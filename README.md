@@ -11,6 +11,6 @@ Tools:
 
 Linters:
 
-- [flake8](./linters/flake8/PLUGINS.md)
+- [flake8](./linters/flake8/README.md)
 - [pylint](./linters/pylint/pylintrc)
 - [ruff](./linters/ruff/pyproject.toml)
