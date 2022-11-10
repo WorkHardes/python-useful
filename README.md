@@ -1,6 +1,14 @@
 # Python useful info for developers
 
-This repo contains:
+This repo contains configs for
+Tools:
 
-- pyproject.toml config for black, isort and mypy
-- list of my fav flake8 plugins
+- [black](./black/pyproject.toml)
+- [isort](./isort/pyproject.toml)
+- [mypy](./mypy/pyproject.toml)
+
+Linters:
+
+- [flake8](./linters/flake8/PLUGINS.md)
+- pylint
+- ruff

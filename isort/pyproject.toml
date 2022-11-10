@@ -1,0 +1,7 @@
+[tool.isort]
+profile = "black"
+line_length = 88
+combine_as_imports = true
+skip_gitignore = true
+extra_standard_library = ["typing_extensions"]
+skip = []
