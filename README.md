@@ -3,6 +3,8 @@
 This repo contains configs for
 Tools:
 
+- [autoflake](./autoflake/.pre-commit-config.yaml)
+- [bandit](./bandit/.pre-commit-config.yaml)
 - [black](./black/pyproject.toml)
 - [isort](./isort/pyproject.toml)
 - [mypy](./mypy/pyproject.toml)
