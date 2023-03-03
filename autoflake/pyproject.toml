@@ -1,3 +1,2 @@
 [tool.autoflake]
 check = true
-imports = []

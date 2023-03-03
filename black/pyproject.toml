@@ -1,17 +1,13 @@
 [tool.black]
 line-length = 88
-target-version = ['py310']
+target-version = ['py311']
 exclude = '''
 /(
-    \.eggs
-  | \.git
-  | \.hg
+    \.git
   | \.mypy_cache
-  | \.tox
+  | \.ruff_cache
   | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
+  | scripts
+  | tests
 )/
 '''
