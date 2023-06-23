@@ -3,58 +3,47 @@ ignore-init-module-imports = true
 line-length = 88
 target-version = "py311"
 select = [
-    "F",   # pyflakes
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "N",   # pep8-naming
-    "UP",  # pyupgrade
-    "YTT", # flake8-2020
-    "ANN", # flake8-annotations
-    "FBT", # flake8-boolean-trap
-    "S",   # flake8-bandit
-    "B",   # flake8-bugbear
-    "A",   # flake8-builtins
-    "C4",  # flake8-comprehensions
-    "T10", # flake8-debugger
-    "EM",  # flake8-errmsg
-    "EXE", # flake8-executable
-    "ISC", # flake8-implicit-str-concat
-    "ICN", # flake8-import-conventions
-    "PIE", # flake8-pie
-    "T20", # flake8-print
-    "PYI", # flake8-pyi
-    "PT",  # flake8-pytest-style
-    "Q",   # flake8-quotes
-    "RSE", # flake8-raise
-    "SLF", # flake8-self
-    "SIM", # flake8-simplify
-    "TID", # flake8-tidy-imports
-    "ARG", # flake8-unused-arguments
-    "PTH", # flake8-use-pathlib
-    "PGH", # pygrep-hooks
-    "PLC", # pylint convention
-    "PLE", # pylint error
-    "PLR", # pylint refactor
-    "PLW", # pylint warning
-    "TRY", # tryceratops
-    "RUF", # Ruff-specific rules
+    "F",     # pyflakes
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "I",     # isort
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "ASYNC", # flake8-async
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "COM",   # flake8-commas
+    "C4",    # flake8-comprehensions
+    "EM",    # flake8-errmsg
+    "ISC",   # flake8-implicit-str-concat
+    "PIE",   # flake8-pie
+    "PYI",   # flake8-pyi
+    "Q",     # flake8-quotes
+    "RSE",   # flake8-raise
+    "SLF",   # flake8-self
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib
+    "PGH",   # pygrep-hooks
+    "PLC",   # pylint convention
+    "PLE",   # pylint error
+    "PLR",   # pylint refactor
+    "PLW",   # pylint warning
+    "TRY",   # tryceratops
+    "FLY",   # flynt
+    "RUF",   # Ruff-specific rules
 ]
 ignore = [
-    "E999",    # SyntaxError
-    "ANN102",  # Missing type annotation for `cls` in classmethod
-    "ANN206",  # Missing return type annotation for classmethod `__subclasshook__`
-    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `func`
-    "A003",    # Class attribute `class` is shadowing a python builtin
-    "PLR0912", # Too many branches
-    "TRY400",  # Use logging.exception instead of logging.error
     "PTH123",  # open("foo") should be replaced by Path("foo").open()
-    "RUF001",  # String contains ambiguous unicode character
+    "PLR0913", # Too many function arguments
 ]
 exclude = [
     ".git",
     ".mypy_cache",
     ".ruff_cache",
     ".venv",
-    "scripts",
-    "tests",
 ]
+
+[tool.ruff.flake8-unused-arguments]
+ignore-variadic-names = true
