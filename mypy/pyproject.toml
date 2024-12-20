@@ -1,17 +1,9 @@
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
+cache_dir = "/tmp/mypy_cache"
 ignore_missing_imports = true
-warn_no_return = true
+warn_no_return = false
 warn_unreachable = true
 warn_incomplete_stub = true
 warn_unused_configs = true
-plugins = [
-    "pydantic.mypy"
-]
-
-exclude = [
-    ".git",
-    ".mypy_cache",
-    ".ruff_cache",
-    ".venv",
-]
+plugins = ["pydantic.mypy"]

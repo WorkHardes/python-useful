@@ -1,7 +1,9 @@
 [tool.ruff]
-ignore-init-module-imports = true
-line-length = 88
-target-version = "py311"
+line-length = 95
+target-version = "py312"
+cache-dir = "/tmp/ruff_cache"
+
+[tool.ruff.lint]
 select = [
     "F",     # pyflakes
     "E",     # pycodestyle errors
@@ -9,6 +11,7 @@ select = [
     "I",     # isort
     "N",     # pep8-naming
     "UP",    # pyupgrade
+    "ANN",   # flake8-annotations
     "ASYNC", # flake8-async
     "B",     # flake8-bugbear
     "A",     # flake8-builtins
@@ -35,15 +38,32 @@ select = [
     "RUF",   # Ruff-specific rules
 ]
 ignore = [
+    "ANN002",  # Missing type annotation for `*args`
+    "ANN003",  # Missing type annotation for `**kwargs`
+    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `model`
+    "A003",    # class attribute `` is shadowing a Python builtin
+    "ARG001",  # Unused function argument: `body`
     "PTH123",  # open("foo") should be replaced by Path("foo").open()
+    "PLR0912", # Too many branches
     "PLR0913", # Too many function arguments
-]
-exclude = [
-    ".git",
-    ".mypy_cache",
-    ".ruff_cache",
-    ".venv",
+    "PLR0915", # Too many statements
+    "PLW0603", # Using the global statement to update `` is discouraged
+    "TRY300",  # Checks for return statements in try blocks.
 ]
 
-[tool.ruff.flake8-unused-arguments]
+[tool.ruff.lint.per-file-ignores]
+# imported but unused; consider adding to `__all__` or using a redundant alias
+"__init__.py" = ["F401"]
+# Missing return type annotation for public function `get_settings`
+"src/core/settings.py" = ["ANN201"]
+
+[tool.ruff.lint.flake8-unused-arguments]
 ignore-variadic-names = true
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = [
+    "fastapi.Depends",
+    "fastapi.params.Depends",
+    "fastapi.Query",
+    "fastapi.params.Query"
+]
