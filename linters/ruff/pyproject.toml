@@ -23,6 +23,7 @@ select = [
     "PYI",   # flake8-pyi
     "Q",     # flake8-quotes
     "RSE",   # flake8-raise
+    "RET",   # flake8-return
     "SLF",   # flake8-self
     "SIM",   # flake8-simplify
     "TID",   # flake8-tidy-imports
@@ -35,35 +36,23 @@ select = [
     "PLW",   # pylint warning
     "TRY",   # tryceratops
     "FLY",   # flynt
+    "FAST",  # fastapi
+    "PERF",  # perflint
+    "FURB",  # refurb
     "RUF",   # Ruff-specific rules
 ]
 ignore = [
     "ANN002",  # Missing type annotation for `*args`
     "ANN003",  # Missing type annotation for `**kwargs`
     "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `model`
-    "A003",    # class attribute `` is shadowing a Python builtin
-    "ARG001",  # Unused function argument: `body`
-    "PTH123",  # open("foo") should be replaced by Path("foo").open()
     "PLR0912", # Too many branches
     "PLR0913", # Too many function arguments
-    "PLR0915", # Too many statements
-    "PLW0603", # Using the global statement to update `` is discouraged
-    "TRY300",  # Checks for return statements in try blocks.
 ]
 
 [tool.ruff.lint.per-file-ignores]
 # imported but unused; consider adding to `__all__` or using a redundant alias
 "__init__.py" = ["F401"]
-# Missing return type annotation for public function `get_settings`
-"src/core/settings.py" = ["ANN201"]
 
 [tool.ruff.lint.flake8-unused-arguments]
+# Whether to allow unused variadic arguments, like *args and **kwargs.
 ignore-variadic-names = true
-
-[tool.ruff.lint.flake8-bugbear]
-extend-immutable-calls = [
-    "fastapi.Depends",
-    "fastapi.params.Depends",
-    "fastapi.Query",
-    "fastapi.params.Query"
-]
