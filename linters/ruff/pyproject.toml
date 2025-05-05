@@ -1,58 +1,65 @@
 [tool.ruff]
-line-length = 95
-target-version = "py312"
+line-length = 120
+target-version = "py313"
 cache-dir = "/tmp/ruff_cache"
 
 [tool.ruff.lint]
 select = [
-    "F",     # pyflakes
-    "E",     # pycodestyle errors
-    "W",     # pycodestyle warnings
-    "I",     # isort
-    "N",     # pep8-naming
-    "UP",    # pyupgrade
+    "FAST",  # fastapi
     "ANN",   # flake8-annotations
     "ASYNC", # flake8-async
     "B",     # flake8-bugbear
     "A",     # flake8-builtins
     "COM",   # flake8-commas
     "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez
+    "T10",   # flake8-debugger
     "EM",    # flake8-errmsg
+    "EXE",   # flake8-executable
+    "FIX",   # flake8-fixme
+    "INT",   # flake8-gettext
     "ISC",   # flake8-implicit-str-concat
+    "ICN",   # flake8-import-conventions
+    "LOG",   # flake8-logging
+    "G",     # flake8-logging-format
     "PIE",   # flake8-pie
+    "T20",   # flake8-print
     "PYI",   # flake8-pyi
+    "PT",    # flake8-pytest-style
     "Q",     # flake8-quotes
     "RSE",   # flake8-raise
     "RET",   # flake8-return
     "SLF",   # flake8-self
     "SIM",   # flake8-simplify
+    "SLOT",  # flake8-slot
     "TID",   # flake8-tidy-imports
+    "TC",    # flake8-type-checking
     "ARG",   # flake8-unused-arguments
     "PTH",   # flake8-use-pathlib
+    "FLY",   # flynt
+    "I",     # isort
+    "C90",   # mccabe
+    "N",     # pep8-naming
+    "PERF",  # perflint
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
     "PGH",   # pygrep-hooks
     "PLC",   # pylint convention
     "PLE",   # pylint error
     "PLR",   # pylint refactor
     "PLW",   # pylint warning
-    "TRY",   # tryceratops
-    "FLY",   # flynt
-    "FAST",  # fastapi
-    "PERF",  # perflint
+    "UP",    # pyupgrade
     "FURB",  # refurb
-    "RUF",   # Ruff-specific rules
+    "RUF",   # ruff specific rules
+    "TRY",   # tryceratops
 ]
 ignore = [
     "ANN002",  # Missing type annotation for `*args`
     "ANN003",  # Missing type annotation for `**kwargs`
-    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `model`
-    "PLR0912", # Too many branches
-    "PLR0913", # Too many function arguments
+    "COM812",  # Trailing comma missing
+    "PLR0913", # Too many arguments in function definition
+    "RUF001",  # String contains ambiguous {}. Did you mean {}?
+    "RUF002",  # Docstring contains ambiguous {}. Did you mean {}?
+    "RUF003",  # Comment contains ambiguous {}. Did you mean {}?
 ]
-
-[tool.ruff.lint.per-file-ignores]
-# imported but unused; consider adding to `__all__` or using a redundant alias
-"__init__.py" = ["F401"]
-
-[tool.ruff.lint.flake8-unused-arguments]
-# Whether to allow unused variadic arguments, like *args and **kwargs.
-ignore-variadic-names = true
